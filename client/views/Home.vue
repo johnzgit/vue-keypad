@@ -1,7 +1,7 @@
 <template>
   <div class="page">
-    <num-input :num="passcode" ></num-input>
-    <num-pad :show.sync="showNumpad" :num="passcode"></num-pad>
+    <num-input :num="passcode" @focus="show=true"></num-input>
+    <num-pad :show="show" :num="passcode"></num-pad>
   </div>
 </template>
 
@@ -11,16 +11,8 @@ import {numInput,numPad} from '../../src'
 export default {
   data(){
     return {
-        showNumpad:false,
+        show:false,
     }
-  },
-  mounted(){
-    setTimeout(()=>this.showNumpad=true,1000)
-  },
-  watch:{
-      passcode(){
-          console.log(this.passcode)
-      }
   },
   computed: {
     passcode() {

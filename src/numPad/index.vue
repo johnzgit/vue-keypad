@@ -1,15 +1,17 @@
 <template>
-    <div class="keynumer" v-show="show" transition="numpad" style="height:auto" @touchstart="toch($event)" @touchend="toched($event)">
-        <aside v-for="line in 3">
-            <span v-for="num in 3" v-on:click="add((line-1)*3+num, $event)">{{(line-1)*3+num}}</span>
-        </aside>
-        <aside>
-            <i v-if="decimal" v-on:click="add('.', $event)">.</i>
-            <i v-else></i>
-            <span v-on:click="add(0, $event)">0</span>
-            <i class="cut" v-on:click="cut"></i>
-        </aside>
-    </div>
+    <transition name="numpad">
+        <div class="keynumer" v-if="show" @touchstart="toch($event)" @touchend="toched($event)">
+            <aside v-for="line in 3">
+                <span v-for="num in 3" v-on:click="add((line-1)*3+num, $event)">{{(line-1)*3+num}}</span>
+            </aside>
+            <aside>
+                <i v-if="decimal" v-on:click="add('.', $event)">.</i>
+                <i v-else></i>
+                <span v-on:click="add(0, $event)">0</span>
+                <i class="cut" v-on:click="cut"></i>
+            </aside>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -79,25 +81,26 @@
 </script>
 
 <style>
-    .numpad-enter {
+    .numpad-enter-active,
+    .numpad-leave-active {
         transform: translate3d(0, 100%, 0);
     }
     
-    .numpad-leave {
+    .numpad-enter,
+    .numpad-leave-active {
         transform: translate3d(0, 100%, 0);
     }
     
     .keynumer {
+        transition-property: transform;
+        transition-duration: 300ms;
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
-        background: #eee;
         z-index: 10100;
-        transition-property: transform;
-        transition-duration: 300ms;
         width: 100%;
-        height: 15.416rem;
+        height: auto;
         background-color: #fff;
         position: fixed;
         bottom: 0;
@@ -106,14 +109,8 @@
             width: 100%;
             border-bottom: 1px solid #ccc;
             display: flex;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
             span {
-                -webkit-box-flex: 1;
-                -ms-flex: 1;
                 flex: 1;
-                -webkit-flex: 1;
                 border-right: 1px solid #ccc;
                 font-size: 1.875rem;
                 text-align: center;
@@ -125,10 +122,7 @@
                 }
             }
             i {
-                -webkit-box-flex: 1;
-                -ms-flex: 1;
                 flex: 1;
-                -webkit-flex: 1;
                 border-right: 1px solid #ccc;
                 font-size: 1.875rem;
                 text-align: center;
@@ -146,20 +140,6 @@
         }
         aside:nth-of-type(4) {
             border-bottom: 0;
-        }
-        aside:nth-of-type(4) i:nth-of-type(2) {
-            background-color: #d4d8db;
-            font-family: "iconfont" !important;
-            font-style: normal;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-stroke-width: 0.2px;
-            -moz-osx-font-smoothing: grayscale;
-            border-right: 0;
-        }
-        aside:nth-of-type(4) {
-            span:nth-of-type(3).active-state {
-                background-color: #fff;
-            }
         }
         .cut {
             background-image: url(cut.svg);

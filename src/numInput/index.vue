@@ -1,5 +1,5 @@
 <template>
-    <div class="numinput">
+    <div class="numinput" @click="$emit('focus')">
         <div class="row-shan">
             <span v-for="item in num.length"><i></i></span>
             <span v-for="item in max-num.length" ></span>
@@ -30,14 +30,8 @@
             border: 1px solid #999;
             margin: 2rem 2rem;
             display: flex;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
             span {
-                -webkit-box-flex: 1;
-                -ms-flex: 1;
                 flex: 1;
-                -webkit-flex: 1;
                 border-left: 1px solid #ccc;
                 background-color: #eee;
                 position: relative;
@@ -53,10 +47,6 @@
                     left: 50%;
                     border-radius: 50%;
                     transform: translate(-50%, -50%);
-                    -webkit-transform: translate(-50%, -50%);
-                    -o-transform: translate(-50%, -50%);
-                    -moz-transform: translate(-50%, -50%);
-                    -ms-transform: translate(-50%, -50%);
                 }
             }
         }
