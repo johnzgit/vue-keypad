@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page" @click="show=false">
     <num-input :num="passcode" @focus="show=true"></num-input>
     <num-pad :show="show" :num="passcode"></num-pad>
   </div>

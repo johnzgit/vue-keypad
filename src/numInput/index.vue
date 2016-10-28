@@ -1,5 +1,5 @@
 <template>
-    <div class="numinput" @click="$emit('focus')">
+    <div class="numinput" @click="$event.stopPropagation(),$emit('focus')">
         <div class="row-shan">
             <span v-for="item in num.length"><i></i></span>
             <span v-for="item in max-num.length" ></span>

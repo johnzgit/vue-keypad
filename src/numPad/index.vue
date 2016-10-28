@@ -1,6 +1,6 @@
 <template>
     <transition name="numpad">
-        <div class="keynumer" v-if="show" @touchstart="toch($event)" @touchend="toched($event)">
+        <div class="keynumer" v-if="show" @click="$event.stopPropagation()" @touchstart="toch($event)" @touchend="toched($event)">
             <aside v-for="line in 3">
                 <span v-for="num in 3" v-on:click="add((line-1)*3+num, $event)">{{(line-1)*3+num}}</span>
             </aside>
