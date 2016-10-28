@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  passcode: ''
+  passcode: '',
+  input1:''
 }
 
 const mutations = {

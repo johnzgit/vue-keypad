@@ -1,5 +1,5 @@
 <template>
-  <div class="page" @click="show=false">
+  <div class="page page-home" @click="show=false">
     <num-input :num="passcode" @focus="show=true"></num-input>
     <num-pad :show="show" :num="passcode"></num-pad>
   </div>
@@ -25,3 +25,10 @@ export default {
   }
 }
 </script>
+<style>
+.page-home{
+	a{
+	    font-size: 1rem;
+	}
+}
+</style>
