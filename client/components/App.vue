@@ -30,9 +30,4 @@ body {
   height: 100%;
   width: 100%;
 }
-code {
-  background-color: #f0f0f0;
-  padding: 3px 5px;
-  border-radius: 2px;
-}
 </style>
