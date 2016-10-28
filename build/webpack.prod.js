@@ -1,5 +1,4 @@
 'use strict'
-const exec = require('child_process').execSync
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
@@ -8,15 +7,8 @@ const pkg = require('../package')
 const _ = require('./utils')
 const config = require('./config')
 
-if (config.electron) {
-  // remove dist folder in electron mode
-  exec('rm -rf app/assets/')
-} else {
-  // remove dist folder in web app mode
-  exec('rm -rf dist/')
-  // use source-map in web app mode
+if (!config.electron) 
   base.devtool = 'source-map'
-}
 
 // a white list to add dependencies to vendor chunk
 base.entry.vendor = config.vendor
