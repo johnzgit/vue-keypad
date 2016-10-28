@@ -1,25 +1,9 @@
 # vue-keypad
 
-To start:
+## Get Started
 
 ```bash
-$ npm install
+npm install vue-keypad
 ```
 
-To develop:
-
-```bash
-$ npm run dev```
-
-To build for production:
-
-```bash
-$ npm run build
-```
-
-To lint you code:
-
-```bash
-$ npm run lint
-```
 
