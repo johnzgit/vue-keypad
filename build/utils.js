@@ -8,8 +8,8 @@ _.cssLoader = config.cssModules ?
   'style-loader!css-loader?-autoprefixer&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader' :
   'style-loader!css-loader?-autoprefixer!postcss-loader'
 
-_.outputPath =  path.join(__dirname, '../doc')
+_.outputPath =  path.join(__dirname, '../docs')
 
-_.outputIndexPath = path.join(__dirname, '../doc/index.html')
+_.outputIndexPath = path.join(__dirname, '../docs/index.html')
 
 _.target = 'web'
